@@ -14,4 +14,4 @@ SELECT
       oli.o_orderdate
   ) AS running_total
 FROM
-  {{ ref('order_line_items') }} oli;
+  {{ ref('fct_order_line_items') }} oli

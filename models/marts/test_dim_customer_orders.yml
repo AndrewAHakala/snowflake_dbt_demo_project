@@ -1,0 +1,21 @@
+models:
+  - name: dim_customer_orders
+    description: one unique customer and their lifetime orders
+    columns:
+      - name: c_custkey
+        description: primary key
+        data_tests:
+          - not_null
+      - name: c_name
+        data_tests:
+          - not_null
+      - name: o_orderkey
+        data_tests:
+          - unique
+          - not_null
+      - name: o_orderdate
+        data_tests:
+          - not_null
+      - name: o_totalprice
+        data_tests:
+          - not_null
