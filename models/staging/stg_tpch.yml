@@ -1,0 +1,18 @@
+models:
+  - name: stg_line_items
+    columns:
+      - name: l_orderkey
+        data_tests:
+          - not_null
+      - name: l_linenumber
+        data_tests:
+          - not_null
+      - name: l_partkey
+        data_tests:
+          - not_null
+      - name: l_quantity
+        data_tests:
+          - not_null
+      - name: l_extendedprice
+        data_tests:
+          - not_null

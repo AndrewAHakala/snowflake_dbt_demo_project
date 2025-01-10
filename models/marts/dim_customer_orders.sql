@@ -4,5 +4,5 @@ SELECT
     o.o_orderkey,
     o.o_orderdate,
     o.o_totalprice
-  FROM tpch_data.customer c
-    JOIN  tpch_data.orders o ON c.c_custkey = o.o_custkey
+  FROM {{ source('tpch', 'customer') }} c
+    JOIN  {{ source('tpch', 'orders') }} o ON c.c_custkey = o.o_custkey
