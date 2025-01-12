@@ -1,6 +1,6 @@
 SELECT
-  oli.c_custkey,
-  oli.c_name,
+  oli.o_custkey,
+  oli.p_name,
   oli.o_orderkey,
   oli.o_orderdate,
   oli.o_totalprice,
@@ -9,9 +9,9 @@ SELECT
   oli.l_quantity,
   oli.l_extendedprice,
   SUM(oli.l_extendedprice) OVER (
-    PARTITION BY oli.c_custkey
+    PARTITION BY oli.o_custkey
     ORDER BY
       oli.o_orderdate
   ) AS running_total
 FROM
-  {{ ref('fct_order_line_items') }} oli
+  {{ ref('fct_order_items') }} oli
