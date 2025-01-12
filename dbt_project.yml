@@ -37,8 +37,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   snowflake_dbt_demo:
-    # Applies to all files under models/example/
+    # Applies to all files under models/marts/
     marts:
       +materialized: table
+    # Applies to all files under models/staging/
     staging: 
       materialized: view

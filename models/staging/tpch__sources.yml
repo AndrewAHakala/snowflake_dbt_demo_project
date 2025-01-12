@@ -12,7 +12,22 @@ sources:
             - unique
             - not_null
       - name: lineitem
-      - name: nation
+        columns:
+          - name: l_orderkey
+            data_tests:
+            - not_null
+          - name: l_linenumber
+            data_tests:
+            - not_null
+          - name: l_partkey
+            data_tests:
+            - not_null
+          - name: l_quantity
+            data_tests:
+            - not_null
+          - name: l_extendedprice
+            data_tests:
+            - not_null
       - name: orders
         freshness: # make this a little more strict
           warn_after: {count: 6, period: hour}
@@ -20,9 +35,4 @@ sources:
         loaded_at_field: CREATED_TIMESTAMP
       - name: part
       - name: partsupp
-      - name: region
       - name: supplier
-
-  - name: stripe
-    tables:
-      - name: payments
