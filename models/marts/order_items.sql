@@ -20,3 +20,4 @@ SELECT o.o_orderkey
 ,l.created_timestamp as lineitem_created_timestamp
 FROM {{ ref('stg_orders') }} o
 JOIN {{ ref('stg_line_items') }} l ON o.o_orderkey = l.l_orderkey
+WHERE o.o_totalprice > 10
