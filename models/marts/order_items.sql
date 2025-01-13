@@ -1,3 +1,4 @@
+--testing template functionality 
 SELECT o.o_orderkey
 ,o.o_custkey
 ,l.l_partkey
