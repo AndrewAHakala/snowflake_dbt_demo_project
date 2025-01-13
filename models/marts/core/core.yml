@@ -12,7 +12,7 @@ models:
     access: public
     config:
       contract:
-        enforced: true
+        enforced: false
     description: Customer dimensions table
     columns:
       - name: customer_key

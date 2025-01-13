@@ -1,3 +1,3 @@
 Select *
 FROM {{ ref('stg_orders') }}
-WHERE o_totalprice<0
+WHERE total_price<0
