@@ -1,15 +1,15 @@
 version: 2
 
-groups:
-  - name: data_team
-    owner:
-      name: Data Team
-      email: data@acme.co
+#groups:
+#  - name: data_team
+#    owner:
+#      name: Data Team
+#      email: data@acme.co
 
 models:
   - name: dim_customers
-    group: data_team
-    access: public
+#    group: data_team
+#    access: public
     config:
       contract:
         enforced: false
@@ -118,8 +118,8 @@ models:
 #        description: '{{ doc("account_balance") }}'
  
   - name: fct_order_items
-    group: data_team
-    access: public
+  #  group: data_team
+  #  access: public
     data_tests:
     - dbt_expectations.expect_table_aggregation_to_equal_other_table:
         name: orders_sales_amount_equals_order_item_sales_amount
