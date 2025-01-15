@@ -37,7 +37,6 @@ final as (
         o.clerk_name,
         o.ship_priority,     
         1 as order_count,
-        0 as flag,
         ois.return_count,             
         ois.gross_item_sales_amount,
         ois.item_discount_amount,
