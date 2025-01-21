@@ -6,13 +6,13 @@
 }}
 
 with customer as (
-    select * from {{ ref('stg_customers') }}
+    select * from {{ ref('stg_tpch_customers') }}
 ),
 nation as (
-    select * from {{ ref('stg_nations') }}
+    select * from {{ ref('stg_tpch_nations') }}
 ),
 region as (
-    select * from {{ ref('stg_regions') }}
+    select * from {{ ref('stg_tpch_regions') }}
 ),
 customer_flags as (
     select * from {{ ref('customer_flags') }}

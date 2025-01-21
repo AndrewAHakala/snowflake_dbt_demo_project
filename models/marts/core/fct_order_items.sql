@@ -10,46 +10,58 @@ with order_item as (
     select * from {{ ref('order_items') }}
 
 ),
+
 part_supplier as (
     
     select * from {{ ref('part_suppliers') }}
 
 ),
+
+dim_customers as (
+    
+    select * from {{ ref('int_dim_customers') }}
+
+),
+
+
 final as (
     select 
-        oi.order_item_key,
-        oi.order_key,
-        oi.order_date,
-        oi.customer_key,
-        oi.part_key,
-        oi.supplier_key,
-        oi.order_item_status_code,
-        oi.is_return,
-        oi.line_number,
-        oi.ship_date,
-        oi.commit_date,
-        oi.receipt_date,
-        oi.ship_mode,
-        ps.cost as supplier_cost,
+        dim_customers.region as region_name,
+        order_item.order_item_key,
+        order_item.order_key,
+        order_item.order_date,
+        order_item.customer_key,
+        order_item.part_key,
+        order_item.supplier_key,
+        order_item.order_item_status_code,
+        order_item.return_flag,
+        order_item.line_number,
+        order_item.ship_date,
+        order_item.commit_date,
+        order_item.receipt_date,
+        order_item.ship_mode,
+        part_supplier.cost as supplier_cost,
         {# ps.retail_price, #}
-        oi.base_price,
-        oi.discount_percentage,
-        oi.discounted_price,
-        oi.tax_rate,
-        ps.nation_key,
+        order_item.base_price,
+        order_item.discount_percentage,
+        order_item.discounted_price,
+        order_item.tax_rate,
+        part_supplier.nation_key,
         1 as order_item_count,
-        oi.quantity,
-        oi.gross_item_sales_amount,
-        oi.discounted_item_sales_amount,
-        oi.item_discount_amount,
-        oi.item_tax_amount,
-        oi.net_item_sales_amount
+        order_item.quantity,
+        order_item.gross_item_sales_amount,
+        order_item.discounted_item_sales_amount,
+        order_item.item_discount_amount,
+        order_item.item_tax_amount,
+        order_item.net_item_sales_amount
 
     from
-        order_item oi
-        inner join part_supplier ps
-            on oi.part_key = ps.part_key and
-                oi.supplier_key = ps.supplier_key
+        order_item
+        inner join part_supplier
+            on order_item.part_key = part_supplier.part_key and
+                order_item.supplier_key = part_supplier.supplier_key
+        inner join dim_customers
+            on order_item.customer_key = dim_customers.customer_key
 )
 select 
     *
