@@ -78,7 +78,7 @@ models:
 
         # we apply tests to this column
         tests:
-          - warn_gross_revenue_is_low:
+          - warn_gross_revenue_is_negative:
               severity: warn 
         meta:
           is_certified: false
