@@ -1,0 +1,18 @@
+version: 2
+models:
+- name: monthly_gross_revenue
+  description: This model calculates the total gross revenue generated from item sales
+    for each region on a monthly basis. It helps in understanding the revenue trends
+    and performance across different regions over time.
+  columns:
+  - name: order_month
+    description: The month during which the orders were placed, truncated to the first
+      day of the month.
+  - name: region_name
+    description: The name of the region where the sales occurred.
+  - name: gross_revenue
+    description: The total gross revenue generated from item sales in the specified
+      region and month.
+    data_tests:
+      - warn_gross_revenue_is_negative:
+          column_name: gross_revenue
