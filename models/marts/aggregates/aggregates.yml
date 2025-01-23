@@ -78,6 +78,7 @@ models:
 
         # we apply tests to this column
         tests:
+          - not_null
           - warn_gross_revenue_is_negative:
               severity: warn 
         meta:
