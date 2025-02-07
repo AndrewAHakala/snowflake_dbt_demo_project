@@ -7,7 +7,7 @@ with source as (
 ),final as (
 
     select
-    1 as col,
+    222 as col,
         id as customer_id,
         gender,
         birthdate as birth_date,
