@@ -24,8 +24,8 @@ exposures:
     
     # documentation purposes for point of contact if stuff breaks
     owner:
-      name: Steve Dowling
-      email: steve.dowling@dbtlabs.com
+      name: Andrew Hakala
+      email: andrew.hakala@dbtlabs.com
     
     # set dependencies 
     depends_on:
