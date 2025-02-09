@@ -10,7 +10,7 @@ line_item as (
 
 )
 select 
-
+1 as col,
     line_item.order_item_key,
     orders.order_key,
     orders.customer_key,
