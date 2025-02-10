@@ -1,5 +1,3 @@
-import random
-
 def model(dbt, session):
     
     # setting configuration
